@@ -25,3 +25,7 @@ wake word + mode + args
 ### Conjugate a verb
 
 `/translate --conj --{english_verb_infinitive} --subject --tense`
+
+Reminders:
+
+please deal with all words and commands only in lowercase for simplicity

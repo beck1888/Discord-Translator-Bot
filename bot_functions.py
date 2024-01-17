@@ -2,16 +2,26 @@
 
 ## Import block
 import datetime
-from data_structures import word_convert
+from data_structures import *
+
+
+## Special functions: main aid to helpers
+
+def conjugate(info_class):
+    pass
+
+
 
 ## Helper functions: These assist the 'responds' function which processes and responds to the command
 
-def parse_for_conj(full_command):
+def parse_for_conj(full_command): # Take inputs in ENGLSIH
     # Turn into relevant parts after the slash command
     directions = full_command[11:]
     # Break into the parts of word, subject, and tense
     verb, subject, tense = directions.split()
-
+    # Build the special object for the conjugation process
+    thing_to_conj(verb,subject,tense)
+    conjugate(thing_to_conj)
     return f'It sounds like you are trying to conjugate the verb {verb} in the {tense} tense with the subject of {subject}.\nI will get right on that once Beck programs me to lol!'
 
 
