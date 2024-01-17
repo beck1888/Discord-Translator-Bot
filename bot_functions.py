@@ -1,10 +1,12 @@
 ## Bot functions.py
 
-# Import block
+## Import block
 import datetime
-from word_convert import word_convert
+from data_structures import word_convert
 
 ## Helper functions: These assist the 'responds' function which processes and responds to the command
+
+# Parse out the word into the command parts
 def parse(command):
     # Build out words
     word = ''

@@ -9,9 +9,5 @@ word_convert = {
     "life":"la vida",
     "hand":"la mano",
     "part":"la parte",
-    "":"",
-    "":"",
-    "":"",
-    "":"",
-    
+    "":""    
 }
