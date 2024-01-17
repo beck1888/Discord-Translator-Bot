@@ -4,6 +4,8 @@
 
 - All commands start with '/'
 
+- When an unknown word is asked for, log it to a file so I can add it
+
 ## Command format (don't include the dashes or brackets in the command)
 
 wake word + mode + args

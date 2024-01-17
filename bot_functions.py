@@ -31,8 +31,15 @@ def respond(command, username): # Take in command and username
     # Figure out what type of response to give
     if command[0:10] == '/translate': # If the command is to translate
         word = command[11:] # Use only the word part and not the first part of the string
+        word = word.lower()
 
+        # See if the word is in the dictionary
+        if word not in word_convert: # Send error if word is not mapped
+            return f"I'm sorry, {username}, but I don't know how to translate '{word}' into Spanish yet!\nHowever, I've logged this occurrence to be fixed!"
+        # Can continue is the word is mapped
+        translation = word_convert[word]
+        return f"Great question, {username}! In Spanish, '{word}' is '{translation}'."
+    
 
-    response = "//response here"
-
-    return response
+    # IF NO OUTPUT IS GENERATED, FORCE STOP THE REPLY
+    return False

@@ -57,9 +57,10 @@ if __name__ == '__main__':
         command = message.content # Makes the received message more readable to humans
 
         if command[0] == '/': # Only run if it starts with a slash
-            # reply = respond(command, message.author) # Pass the full message and user
-            await message.channel.send(respond(command, message.author)) # Send the reply made by bot_functions.py
+            reply = respond(command, message.author) # Pass the full message and user
+            if reply is not False: # If False is returned, then there is nothing to send
+                await message.channel.send(reply) # Send the reply made by bot_functions.py
             
 
-    # Run the bot
+    ## Run the bot!!!
     client.run(api_key)
