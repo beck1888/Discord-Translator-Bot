@@ -10,11 +10,7 @@ def parse_for_conj(full_command):
     # Turn into relevant parts after the slash command
     directions = full_command[11:]
     # Break into the parts of word, subject, and tense
-    ########## THIS CODE NEEDS TO BE FIXED TO NOT RETURN OBEJECTS WOTH SMTH LIKE verb.stringpart.lower()
     verb, subject, tense = directions.split()
-    verb = str(verb.lower)
-    subject = str(subject.lower)
-    tense = str(tense.lower)
 
     return f'It sounds like you are trying to conjugate the verb {verb} in the {tense} tense with the subject of {subject}.\nI will get right on that once Beck programs me to lol!'
 
