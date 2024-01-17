@@ -6,29 +6,26 @@ from data_structures import word_convert
 
 ## Helper functions: These assist the 'responds' function which processes and responds to the command
 
-# Parse out the word into the command parts
-# def parse(command):
-#     pass
-#     # Build out words
-#     word = ''
-#     cmd_list = []
-#     for letter in command:
-#         if letter ==  ' ':
-#             cmd_list.append(word)
-#             word = ''
-#         else:
-#             word += letter
-        
-#     cmd_list.append(word) # Adds the last word
+def parse_for_conj(full_command):
+    # Turn into relevant parts after the slash command
+    directions = full_command[11:]
+    # Break into the parts of word, subject, and tense
+    ########## THIS CODE NEEDS TO BE FIXED TO NOT RETURN OBEJECTS WOTH SMTH LIKE verb.stringpart.lower()
+    verb, subject, tense = directions.split()
+    verb = str(verb.lower)
+    subject = str(subject.lower)
+    tense = str(tense.lower)
 
-#     print(cmd_list)
+    return f'It sounds like you are trying to conjugate the verb {verb} in the {tense} tense with the subject of {subject}.\nI will get right on that once Beck programs me to lol!'
+
 
 
 
 ## MAIN FUNCTION: Command processing
 def respond(command, username): # Take in command and username
 
-    # Figure out what type of response to give
+    # If the user wants to do a translation
+    # Format: /translate {word}
     if command[0:10] == '/translate': # If the command is to translate
         word = command[11:] # Use only the word part and not the first part of the string
         word = word.lower()
@@ -39,6 +36,14 @@ def respond(command, username): # Take in command and username
         # Can continue is the word is mapped
         translation = word_convert[word]
         return f"Great question, {username}! In Spanish, '{word}' is '{translation}'."
+    
+    # If the user wants to do a conjugation
+    # Format: /conjugate {infinitive} {subject} {tense}
+    # Supported tenses
+    if command[0:10] == '/conjugate':
+        return parse_for_conj(command)
+
+
     
 
     # IF NO OUTPUT IS GENERATED, FORCE STOP THE REPLY
