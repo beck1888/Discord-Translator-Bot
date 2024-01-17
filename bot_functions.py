@@ -28,6 +28,11 @@ from data_structures import word_convert
 ## MAIN FUNCTION: Command processing
 def respond(command, username): # Take in command and username
 
+    # Figure out what type of response to give
+    if command[0:10] == '/translate': # If the command is to translate
+        word = command[11:] # Use only the word part and not the first part of the string
+
+
     response = "//response here"
 
     return response
