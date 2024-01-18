@@ -6,7 +6,7 @@ if __name__ == '__main__':
     import playsound
     playsound.playsound('misc/error.mp3', False)
     os.system('''
-              osascript -e 'tell app "Visual Studio Code" to display dialog "Oops! You meant to run main.py!" with icon stop buttons {"OK"} default button "OK"'
+              osascript -e 'tell app "Visual Studio Code" to display dialog "Oops! 'bot_functions.py' cannot be run!\n\nDid you mean to run main.py?" with icon stop buttons {"Dismiss"} default button "Dismiss"'
               ''')
     exit()
 
