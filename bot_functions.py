@@ -5,23 +5,28 @@ import datetime
 from data_structures import *
 
 
-## Special functions: main aid to helpers
-
+## Special functions: main aid to helper
 def conjugate(info_class):
-    pass
+    if info_class.tense == 'present':
+        span_subject = convert_subject[info_class.subject]
+        span_verb_root = info_class.verb[:-2] # Trim off the infinitive ending
+    else:
+        return "I don't know how to do that yet!"
 
 
 
 ## Helper functions: These assist the 'responds' function which processes and responds to the command
 
 def parse_for_conj(full_command): # Take inputs in ENGLSIH
+    # Lowercase everything
+    full_command = full_command.lower()
     # Turn into relevant parts after the slash command
     directions = full_command[11:]
     # Break into the parts of word, subject, and tense
     verb, subject, tense = directions.split()
     # Build the special object for the conjugation process
     thing_to_conj(verb,subject,tense)
-    conjugate(thing_to_conj)
+    # conjugate(thing_to_conj)
     return f'It sounds like you are trying to conjugate the verb {verb} in the {tense} tense with the subject of {subject}.\nI will get right on that once Beck programs me to lol!'
 
 
@@ -53,4 +58,4 @@ def respond(command, username): # Take in command and username
     
 
     # IF NO OUTPUT IS GENERATED, FORCE STOP THE REPLY
-    return False
+    return None

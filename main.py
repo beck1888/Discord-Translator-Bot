@@ -58,7 +58,7 @@ if __name__ == '__main__':
 
         if command[0] == '/': # Only run if it starts with a slash
             reply = respond(command, message.author) # Pass the full message and user
-            if reply is not False: # If False is returned, then there is nothing to send
+            if reply is not None: # If None is returned, then there is nothing to send
                 await message.channel.send(reply) # Send the reply made by bot_functions.py
             
 

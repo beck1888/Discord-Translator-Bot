@@ -20,6 +20,19 @@ class thing_to_conj:
         self.subject = subject
         self.tense = tense
 
+## Convert English subject to Spanish
+convert_subject = {
+    "i":"yo",
+    "you":"tú",
+    "he":"él",
+    "she":"ella",
+    "it":"él",
+    "we":"nosotros",
+    "they":"ellos" # Only using they as a plural pronoun for now, specify also they for objects
+}
+
+
+
 ### Tense conjugations
 ar_endings_present = {
     "i":"o",

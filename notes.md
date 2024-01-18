@@ -12,6 +12,9 @@
 
 - Add debug messages for each step in the terminal or a log (including message received but not replied to and message send)
 
+- Deal with getting the gender of objects? IDK!!!
+    - For now just default to the masculine pronouns
+
 ## Command format (don't include the dashes or brackets in the command)
 
 wake word + mode + args
