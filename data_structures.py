@@ -53,3 +53,13 @@ er_endings_present = {
     "we":"emos",
     "they":"en" # Only using they as a plural pronoun for now, specify also they for objects
 }
+
+ir_endings_present = {
+    "i":"o",
+    "you":"es",
+    "he":"e",
+    "she":"e",
+    "it":"e",
+    "we":"imos",
+    "they":"en" # Only using they as a plural pronoun for now, specify also they for objects
+}

@@ -1,5 +1,14 @@
 ## Bot functions.py
 
+## Give error is this file is ran instead of main.py
+if __name__ == '__main__':
+    import os
+    os.system('''
+              osascript -e 'tell app "Visual Studio Code" to display dialog "Oops! You meant to run main.py!" with icon stop'
+              ''')
+    exit()
+
+
 ## Import block
 import datetime
 from data_structures import *
@@ -7,11 +16,20 @@ from data_structures import *
 
 ## Special functions: main aid to helper
 def conjugate(info_class):
-    if info_class.tense == 'present':
+    if info_class.tense == 'present': # Conjugation for the present tense
         span_subject = convert_subject[info_class.subject]
         span_verb_root = info_class.verb[:-2] # Trim off the infinitive ending
+        # Determine ending type
+        if info_class.verb[-2:] == 'ar': # For AR endings
+            conjugated_verb = str(span_subject + ar_endings_present[span_subject])
+        elif info_class.verb[-2:] == 'er':
+            conjugated_verb = str(span_subject + er_endings_present[span_subject])
+        elif info_class.verb[-2:] == 'ir':
+            conjugated_verb = str(span_subject + ir_endings_present[span_subject])
+        else:
+            return 'Wut?'
     else:
-        return "I don't know how to do that yet!"
+        return 'I cant conjugate that tense yet!'
 
 
 
@@ -26,8 +44,9 @@ def parse_for_conj(full_command): # Take inputs in ENGLSIH
     verb, subject, tense = directions.split()
     # Build the special object for the conjugation process
     thing_to_conj(verb,subject,tense)
-    # conjugate(thing_to_conj)
-    return f'It sounds like you are trying to conjugate the verb {verb} in the {tense} tense with the subject of {subject}.\nI will get right on that once Beck programs me to lol!'
+    conjugated_subject_and_verb = conjugate(thing_to_conj)
+    return f'Here you go: {conjugated_subject_and_verb}'
+    # return f'It sounds like you are trying to conjugate the verb {verb} in the {tense} tense with the subject of {subject}.\nI will get right on that once Beck programs me to lol!'
 
 
 
