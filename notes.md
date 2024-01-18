@@ -6,7 +6,7 @@
 
 - When an unknown word is asked for, log it to a file so I can add it
 
-- Add help guide with word fuzzing when an unknown command is given
+- Add help guide with word fuzzing when an unknown command is given ⭐️
 
 - Give error feedback via discord and reject command to prevent breaking script (try statements?)
 
