@@ -32,13 +32,17 @@ def conjugate(verb, subject, tense):
             return 'Wut?'
         # Return the relevant conjugation from above to the function call in the respond function
         return conjugated_phrase
+    elif tense == 'future': # Future tense
+        span_subject = convert_subject[subject]
+        conjugated_phrase = f'{span_subject} {verb}{future_endings[subject]}'
+        return conjugated_phrase
     else:
         return 'I cant conjugate that tense yet!'
 
 
 ## Helper functions: These assist the 'responds' function which processes and responds to the command
 
-def parse_for_conj(full_command): # Take inputs in ENGLSIH
+def parse_for_conj(full_command): # Take inputs in ENGLISH
     # Lowercase everything
     full_command = full_command.lower()
     # Turn into relevant parts after the slash command

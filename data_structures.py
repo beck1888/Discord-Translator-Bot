@@ -36,7 +36,7 @@ convert_subject = {
 ### Tense conjugations
 ar_endings_present = {
     "i":"o",
-    "you":"as",
+    "you":"as", # Only the informal you
     "he":"a",
     "she":"a",
     "it":"a",
@@ -46,7 +46,7 @@ ar_endings_present = {
 
 er_endings_present = {
     "i":"o",
-    "you":"es",
+    "you":"es", # Only the informal you
     "he":"e",
     "she":"e",
     "it":"e",
@@ -56,10 +56,20 @@ er_endings_present = {
 
 ir_endings_present = {
     "i":"o",
-    "you":"es",
+    "you":"es", # Only the informal you
     "he":"e",
     "she":"e",
     "it":"e",
     "we":"imos",
     "they":"en" # Only using they as a plural pronoun for now, specify also they for objects
+}
+
+future_endings = {
+    "i":"é",
+    "you":"ás", # Only the informal you
+    "he":"á",
+    "she":"á",
+    "it":"á",
+    "we":"emos",
+    "they":"án" # Only using they as a plural pronoun for now, specify also they for objects
 }
