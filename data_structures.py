@@ -73,3 +73,17 @@ future_endings = {
     "we":"emos",
     "they":"án" # Only using they as a plural pronoun for now, specify also they for objects
 }
+
+## Irregulars
+
+present_irregulars = [
+    "ser", "sstar", "tener", "ir", "venir",
+    "salir", "poner", "poder", "querer", "hacer",
+    "traer", "decir", "saber", "ver", "dar", "oír"
+]
+
+future_irregulars = [
+    "decir", "hacer", "poder", "poner", "querer", 
+    "saber", "salir", "tener", "venir", "caber", 
+    "haber", "valer"
+]

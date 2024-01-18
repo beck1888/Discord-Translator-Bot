@@ -18,23 +18,32 @@ from data_structures import *
 
 ## Special functions: main aid to helper
 def conjugate(verb, subject, tense):
+    # Check for irregular verbs first
+    if tense == 'present':
+        if verb in present_irregulars:
+            return "Sorry, but I can't conjugate irregulars yet!"
+    elif tense == 'future':
+        if verb in future_irregulars:
+            return "Sorry, but I can't conjugate irregulars yet!"
+
+    # Then if not irregular, proceed to conjugate
     if tense == 'present': # Conjugation for the present tense
         span_subject = convert_subject[subject]
         span_verb_root = verb[:-2] # Trim off the infinitive ending
         # Determine ending type
         if verb[-2:] == 'ar': # For AR endings
-            conjugated_phrase = f'{span_subject} {span_verb_root}{ar_endings_present[subject]}'
+            conjugated_phrase = f'Here you go: {span_subject} {span_verb_root}{ar_endings_present[subject]}'
         elif verb[-2:] == 'er':
-            conjugated_phrase = f'{span_subject} {span_verb_root}{er_endings_present[subject]}'
+            conjugated_phrase = f'Here you go: {span_subject} {span_verb_root}{er_endings_present[subject]}'
         elif verb[-2:] == 'ir':
-            conjugated_phrase = f'{span_subject} {span_verb_root}{ir_endings_present[subject]}'
+            conjugated_phrase = f'Here you go: {span_subject} {span_verb_root}{ir_endings_present[subject]}'
         else:
             return 'Wut?'
         # Return the relevant conjugation from above to the function call in the respond function
         return conjugated_phrase
     elif tense == 'future': # Future tense
         span_subject = convert_subject[subject]
-        conjugated_phrase = f'{span_subject} {verb}{future_endings[subject]}'
+        conjugated_phrase = f'Here you go: {span_subject} {verb}{future_endings[subject]}'
         return conjugated_phrase
     else:
         return 'I cant conjugate that tense yet!'
@@ -52,7 +61,7 @@ def parse_for_conj(full_command): # Take inputs in ENGLISH
     # Build the special object for the conjugation process
     # thing_to_conj(verb,subject,tense)
     conjugated_subject_and_verb = conjugate(verb, subject, tense)
-    return f'Here you go: {conjugated_subject_and_verb}'
+    return f'{conjugated_subject_and_verb}'
     # return f'It sounds like you are trying to conjugate the verb {verb} in the {tense} tense with the subject of {subject}.\nI will get right on that once Beck programs me to lol!'
 
 
