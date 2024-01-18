@@ -7,6 +7,7 @@ if __name__ == '__main__':
     from bot_functions import respond # Controls responses in a more organized file
     import time
     import datetime # For saying the time with the hello message
+    import special_commands
 
 
     time.sleep(2) # DELAY: Allows for user to switch into Discord window and see bot come online
@@ -51,11 +52,17 @@ if __name__ == '__main__':
             return # Ignore and quit because message is in the wrong channel
 
         if str(message.author) not in ['frozen_cube_of_water']: # Control the users allowed to interact with bot
-            return # Ignore and quit because user is not in allow list
+            if message.author != client.user: # Prevent self response
+                await message.channel.send(f'🚫 ATTENTION: {message.author}. This channel needs to be kept clear for testing. Please do NOT transmit on this channel. Thank you. ')
+                return # Ignore and quit because user is not in allow list
 
         command = message.content # Makes the received message more readable to humans
 
-        if command[0] == '/': # Only run if it starts with a slash
+        # Check for special commands
+        help_reply = special_commands.check_if_it_is_a_special_command(command)
+        if help_reply is not None: # A special command
+            await message.channel.send(help_reply)
+        elif command[0] == '/': # If it's not a help, then treat like normal command
             reply = respond(command, message.author) # Pass the full message and user
             if reply is not None: # If None is returned, then there is nothing to send
                 await message.channel.send(reply) # Send the reply made by bot_functions.py
