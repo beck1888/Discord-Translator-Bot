@@ -15,6 +15,8 @@
 - Deal with getting the gender of objects? IDK!!!
     - For now just default to the masculine pronouns
 
+- Need to get a list of irregulars to deny
+
 ## Command format (don't include the dashes or brackets in the command)
 
 wake word + mode + args
