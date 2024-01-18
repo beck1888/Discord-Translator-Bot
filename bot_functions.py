@@ -17,22 +17,23 @@ from data_structures import *
 
 
 ## Special functions: main aid to helper
-def conjugate(info_class):
-    if info_class.tense == 'present': # Conjugation for the present tense
-        span_subject = convert_subject[info_class.subject]
-        span_verb_root = info_class.verb[:-2] # Trim off the infinitive ending
+def conjugate(verb, subject, tense):
+    if tense == 'present': # Conjugation for the present tense
+        span_subject = convert_subject[subject]
+        span_verb_root = verb[:-2] # Trim off the infinitive ending
         # Determine ending type
-        if info_class.verb[-2:] == 'ar': # For AR endings
-            conjugated_verb = str(span_subject + ar_endings_present[span_subject])
-        elif info_class.verb[-2:] == 'er':
-            conjugated_verb = str(span_subject + er_endings_present[span_subject])
-        elif info_class.verb[-2:] == 'ir':
-            conjugated_verb = str(span_subject + ir_endings_present[span_subject])
+        if verb[-2:] == 'ar': # For AR endings
+            conjugated_phrase = f'{span_subject} {span_verb_root}{ar_endings_present[subject]}'
+        elif verb[-2:] == 'er':
+            conjugated_phrase = f'{span_subject} {span_verb_root}{er_endings_present[subject]}'
+        elif verb[-2:] == 'ir':
+            conjugated_phrase = f'{span_subject} {span_verb_root}{ir_endings_present[subject]}'
         else:
             return 'Wut?'
+        # Return the relevant conjugation from above to the function call in the respond function
+        return conjugated_phrase
     else:
         return 'I cant conjugate that tense yet!'
-
 
 
 ## Helper functions: These assist the 'responds' function which processes and responds to the command
@@ -45,8 +46,8 @@ def parse_for_conj(full_command): # Take inputs in ENGLSIH
     # Break into the parts of word, subject, and tense
     verb, subject, tense = directions.split()
     # Build the special object for the conjugation process
-    thing_to_conj(verb,subject,tense)
-    conjugated_subject_and_verb = conjugate(thing_to_conj)
+    # thing_to_conj(verb,subject,tense)
+    conjugated_subject_and_verb = conjugate(verb, subject, tense)
     return f'Here you go: {conjugated_subject_and_verb}'
     # return f'It sounds like you are trying to conjugate the verb {verb} in the {tense} tense with the subject of {subject}.\nI will get right on that once Beck programs me to lol!'
 

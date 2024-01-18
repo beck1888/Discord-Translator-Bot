@@ -40,7 +40,6 @@ if __name__ == '__main__':
                 # await channel.send(f"I logged on at {time}")
                 print(f"DEBUG: Logged on to  '{channel.name}' channel")
 
-
     # Main loop of code
     @client.event # When something is sent in the server
     async def on_message(message):
