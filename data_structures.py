@@ -14,7 +14,7 @@ word_convert = {
 }
 
 #### Structure for building the conjugation object
-class conjugate:
+class thing_to_conj:
     def __init__(self, verb, subject, tense):
         self.verb = verb
         self.subject = subject
