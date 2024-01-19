@@ -17,6 +17,8 @@
 
 - Add ability to report mistakes
 
+- Add force restart pin
+
 ## Command format (don't include the dashes or brackets in the command)
 
 wake word + mode + args
