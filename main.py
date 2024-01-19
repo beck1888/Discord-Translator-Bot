@@ -40,6 +40,12 @@ if __name__ == '__main__':
             if channel: # When channel is found anc connected to
                 # await channel.send(f"I logged on at {time}")
                 print(f"DEBUG: Logged on to  '{channel.name}' channel")
+                import random
+                global shutdown_code
+                shutdown_code = ''
+                for _ in range(5):
+                    shutdown_code += str(random.randint(0,9))
+                print(f'🔐 Your shutdown code is: {shutdown_code}')
 
     # Main loop of code
     @client.event # When something is sent in the server
@@ -58,6 +64,14 @@ if __name__ == '__main__':
 
         command = message.content # Makes the received message more readable to humans
 
+
+        # Check for special shutdown code
+        if message.content == shutdown_code:
+            await message.delete() # Removes the code for security
+            await message.channel.send('Shutting down')
+            import sys
+            sys.exit("User forced shutdown")
+
         # Check for special commands
         help_reply = special_commands.check_if_it_is_a_special_command(command)
         if help_reply is not None: # A special command
@@ -65,6 +79,11 @@ if __name__ == '__main__':
         elif command[0] == '/': # If it's not a help, then treat like normal command
             reply = respond(command, message.author) # Pass the full message and user
             if reply is not None: # If None is returned, then there is nothing to send
+                if reply == 'profanity':
+                    await message.delete() # Delete the message
+                    await message.channel.send(f'@{message.author}: do not use profanity')
+                
+
                 await message.channel.send(reply) # Send the reply made by bot_functions.py
             
 
