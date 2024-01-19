@@ -18,13 +18,29 @@ from data_structures import *
 
 ## Special functions: main aid to helper
 def conjugate(verb, subject, tense):
+    # Make sure verb in an infinitive
+    verb_lower = verb.lower()
+    if verb_lower[-2:] not in ['ar', 'er', 'ir']:
+        return f"Oops! {verb} is not an infinitive verb!"
+
     # Check for irregular verbs first
     if tense == 'present':
         if verb in present_irregulars:
-            return "Sorry, but I can't conjugate irregulars yet!"
+            return "Sorry, but I can't conjugate irregular verbs yet!"
     elif tense == 'future':
         if verb in future_irregulars:
-            return "Sorry, but I can't conjugate irregulars yet!"
+            return "Sorry, but I can't conjugate irregular verbs yet!"
+        
+    # Check if known subject was passed
+    if subject.lower() not in ["i", "you", "he", "she", "it", "we", "they"]:
+        return f"I don't know the subject '{subject}'"
+        
+    # Enforce known tense is passed
+    if tense.lower() not in ['present', 'future']:
+        if tense.lower() in ['past', 'preterit', 'imperfect', 'command', 'conditional', 'subjunctive']:
+            return f'The {tense} tense will be added soon!'
+        else:
+            return f"'{tense}' is not a real Spanish tense!"
 
     # Then if not irregular, proceed to conjugate
     if tense == 'present': # Conjugation for the present tense
@@ -52,6 +68,14 @@ def conjugate(verb, subject, tense):
 ## Helper functions: These assist the 'responds' function which processes and responds to the command
 
 def parse_for_conj(full_command): # Take inputs in ENGLISH
+    # Count spaces
+    spaces = 0
+    for char in full_command:
+        if char == ' ':
+            spaces += 1
+    # Make sure command with 3 args was given
+    if spaces != 3:
+        return 'Improper command format!'
     # Lowercase everything
     full_command = full_command.lower()
     # Turn into relevant parts after the slash command
@@ -78,10 +102,10 @@ def respond(command, username): # Take in command and username
 
         # See if the word is in the dictionary
         if word not in word_convert: # Send error if word is not mapped
-            return f"I'm sorry, {username}, but I don't know how to translate '{word}' into Spanish yet!\nHowever, I've logged this occurrence to be fixed!(That's a lie my dev has not coded my to do that yet hahahahahahahahahahahahah)"
+            return f"I'm sorry, {username}, but I don't know how to translate '{word}' into Spanish yet!"
         # Can continue is the word is mapped
         translation = word_convert[word]
-        return f"Great question, {username}! In Spanish, '{word}' is '{translation}'."
+        return f"In Spanish, '{word}' is: {translation}"
     
     # If the user wants to do a conjugation
     # Format: /conjugate {infinitive} {subject} {tense}

@@ -2,8 +2,6 @@
 
 - Need to make function to check if valid command given
 
-- All commands start with '/'
-
 - When an unknown word is asked for, log it to a file so I can add it
 
 - Add help guide with word fuzzing when an unknown command is given ⭐️
@@ -17,7 +15,7 @@
 
 - Add reminder to use conjugations carefully
 
-- Need to get a list of irregulars to deny
+- Add ability to report mistakes
 
 ## Command format (don't include the dashes or brackets in the command)
 
