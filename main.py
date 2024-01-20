@@ -67,10 +67,46 @@ if __name__ == '__main__':
 
         # Check for special shutdown code
         if message.content == shutdown_code:
-            await message.delete() # Removes the code for security
             await message.channel.send('Shutting down')
+            await message.delete() # Removes the code for security
             import sys
+            import os
+            import playsound
+            # playsound.playsound('misc/error.mp3', False)
+            os.system('''
+            osascript -e 'tell app "Visual Studio Code" to display dialog "User shut down bot with pin from Discord [authorized]" buttons {"Dismiss"} default button "Dismiss"'
+            ''')
             sys.exit("User forced shutdown")
+
+
+        # Check if the command is for a logger
+        if message.content[0:3] == '/re':
+            # because we know that only the two below start with this, we can prepare
+            from datetime import datetime
+            timestamp = datetime.now().strftime("On %m/%d/%Y at %I:%M:%S %p")
+            who_said = message.author
+
+        if message.content[0:7] == '/report':
+            report = message.content[8:]
+            log_item = f'''🚫 {timestamp} - the user '{who_said}' reported the following issue\n    -> "{report}"'\n\n'''
+            with open('reports.txt', 'a') as report_log:
+                report_log.write(log_item)
+                report_log.close()
+                print("New report logged!")
+                await message.channel.send(f"Thanks **@{who_said}** for your feedback!")
+
+        elif message.content[0:8] == '/request':
+            request = message.content[9:]
+            log_item = f'''⭐️ {timestamp} - the user '{who_said}' requested the following feature\n     -> "{request}"'\n\n'''
+            with open('requests.txt', 'a') as request_log:
+                request_log.write(log_item)
+                request_log.close()
+                print("New request logged!")
+                await message.channel.send(f"Thanks **@{who_said}** for your feedback!")
+
+        else:
+            pass
+        
 
         # Check for special commands
         help_reply = special_commands.check_if_it_is_a_special_command(command)

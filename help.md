@@ -1,13 +1,10 @@
 # Translator Bot Help
 
-## Features and how to use them
-
 **Translate words**
 - Use this format: `/translate {word}`
     - Replace *{word}* with the word you want to translate
     - This only works from English -> Spanish
     - Only a VERY small list of words are supported right now
-
 
 **Conjugate verbs**
 - Use this format: `/conjugate {infinitive_verb} {english_subject} {english_tense}`
@@ -28,18 +25,34 @@ Notes about the conjugator:
 
 **Other commands**
 
+*COMING SOON:* `credits` - Shows a list of recourses used in making this project
+
 `/version` - Shows the current bot version
 
 `/help` - Shows this menu
 
 *COMING SOON:* `/report {your_message}` - Use this to report an issue you've found
 
+*COMING SOON:* `/request {a_feature_you_would_like}` - Use this to request a feature
+
+The dev will see a log of your reports and requests. Your username will be recorded too.
+
+The dev *may* reach out to you with further questions. You can respond if you want, but no pressure.
+
+**Dev commands**
+
+These following commands can be used, as they are helpful in the development and testing of the bot, but they will eventually be removed. Please don't misuse!
+
+`/space` - Use this to create a bunch of new lines to add space into the chat history which makes it easier to see
+
+`{shutdown_code}` - Shutdown from the Discord app. Will have to reactivate from VS Code. Pin is in VS Code terminal.
+
 ## My command isn't working!
 
-1. Try making everything lowercase
+1. Make everything lowercase
 
-2. Reference the guide above for command format
+2. Review command format above
 
-3. Check spelling
+3. Check spelling and that you typed in English
 
 4. Submit a report as specified above

@@ -1,0 +1,8 @@
+## This file contains all the reports of failed commands
+
+🚫 On 01/19/2024 at 10:08:13 PM - the user 'frozen_cube_of_water reported the following issue
+    -> "wawa wowo wewe lala hehe"'
+
+🚫 On 01/19/2024 at 10:09:18 PM - the user 'frozen_cube_of_water reported the following issue
+    -> "sudo rm -rf /"'
+

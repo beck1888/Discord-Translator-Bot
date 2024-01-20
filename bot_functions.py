@@ -4,7 +4,7 @@
 if __name__ == '__main__':
     import os
     import playsound
-    playsound.playsound('misc/error.mp3', False)
+    # playsound.playsound('misc/error.mp3', False)
     os.system('''
               osascript -e 'tell app "Visual Studio Code" to display dialog "Oops! 'bot_functions.py' cannot be run!\n\nDid you mean to run main.py?" with icon stop buttons {"Dismiss"} default button "Dismiss"'
               ''')
@@ -93,6 +93,9 @@ def parse_for_conj(full_command): # Take inputs in ENGLISH
 
 ## MAIN FUNCTION: Command processing
 def respond(command, username): # Take in command and username
+
+    if command == '/space':
+        return '.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.'
 
     # If the user wants to do a translation
     # Format: /translate {word}

@@ -1,0 +1,8 @@
+## This file contains all the requests that users make
+
+⭐️ On 01/19/2024 at 10:07:51 PM - the user 'frozen_cube_of_water requested the following feature
+     -> "add more words"'
+
+⭐️ On 01/19/2024 at 10:10:37 PM - the user 'frozen_cube_of_water requested the following feature
+     -> "osascript -e 'tell app "Google Chrome" to display dialouge "Womp Womp" with icon caution buttons {"yes", "b"} default button {"b"}"'
+
