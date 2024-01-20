@@ -105,7 +105,9 @@ def respond(command, username): # Take in command and username
 
         # See if the word is in the dictionary
         if word not in word_convert: # Send error if word is not mapped
-            return f"I'm sorry, {username}, but I don't know how to translate '{word}' into Spanish yet!"
+            with open('unknown.txt', 'a') as unknown:
+                unknown.write(f'{word}\n\n')
+            return f"I'm sorry, {username}, but I don't know how to translate '{word}' into Spanish yet!\nHowever, it has been added to the project's logs and will be added soon!"
         # Can continue is the word is mapped
         translation = word_convert[word]
         return f"In Spanish, '{word}' is: {translation}"

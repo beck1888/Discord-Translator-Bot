@@ -1,8 +1,8 @@
 ## Project info
 project_state = 'alpha'
-mm_dd = '1.19' # Update every time a change is made the code
-days_version = 2
-version_note = 'reporting_and_requesting'
+mm_dd = '1.20' # Update every time a change is made the code
+days_version = 1
+version_note = 'unknown_words'
 # Version format (i.e. Translator Bot: alpha 1.18.2) which is mm.dd.version
 version_ID = f'🛠️ Translator Bot: {project_state} {mm_dd}.{str(days_version)} #{version_note}'
 

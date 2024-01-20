@@ -73,8 +73,8 @@ if __name__ == '__main__':
             import os
             import playsound
             # playsound.playsound('misc/error.mp3', False)
-            os.system('''
-            osascript -e 'tell app "Visual Studio Code" to display dialog "User shut down bot with pin from Discord [authorized]" buttons {"Dismiss"} default button "Dismiss"'
+            os.system(f'''
+            osascript -e 'tell app "Visual Studio Code" to display dialog "'{message.author}' shut down bot with pin from Discord" buttons {"Dismiss"} default button "Dismiss"'
             ''')
             sys.exit("User forced shutdown")
 
