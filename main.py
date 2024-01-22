@@ -57,10 +57,10 @@ if __name__ == '__main__':
         if message.channel.name != channel_name: # If message not received in target channel
             return # Ignore and quit because message is in the wrong channel
 
-        if str(message.author) not in ['frozen_cube_of_water']: # Control the users allowed to interact with bot
-            if message.author != client.user: # Prevent self response
-                await message.channel.send(f'🚫 ATTENTION: {message.author}. This channel needs to be kept clear for testing. Please do NOT transmit on this channel. Thank you. ')
-                return # Ignore and quit because user is not in allow list
+        # if str(message.author) not in ['frozen_cube_of_water', 'ronv007']: # Control the users allowed to interact with bot
+        #     if message.author != client.user: # Prevent self response
+        #         await message.channel.send(f'🚫 ATTENTION: {message.author}. This channel needs to be kept clear for testing. Please do NOT transmit on this channel. Thank you. ')
+        #         return # Ignore and quit because user is not in allow list
 
         command = message.content # Makes the received message more readable to humans
 

@@ -25,15 +25,15 @@ Notes about the conjugator:
 
 **Other commands**
 
-*COMING SOON:* `credits` - Shows a list of recourses used in making this project
-
-`/version` - Shows the current bot version
+*COMING SOON:* `/credits` - Shows a list of recourses used in making this project
 
 `/help` - Shows this menu
 
-*COMING SOON:* `/report {your_message}` - Use this to report an issue you've found
+`/report {your_message}` - Use this to report an issue you've found
 
-*COMING SOON:* `/request {a_feature_you_would_like}` - Use this to request a feature
+`/request {a_feature_you_would_like}` - Use this to request a feature
+
+`/version` - Shows the current bot version
 
 The dev will see a log of your reports and requests. Your username will be recorded too.
 
